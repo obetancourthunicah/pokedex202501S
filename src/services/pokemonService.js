@@ -39,3 +39,9 @@ export const useGetPokemons = (page = 0, limit = 20) => {
         error
     }
 }
+
+export const getPokemonImg = ( url ) => {
+    let pokemonCod = url.split('/').splice(-2,1)[0] || ''
+    // https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/21.png
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonCod}.png`;
+}
