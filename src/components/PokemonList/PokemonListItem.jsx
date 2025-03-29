@@ -1,7 +1,8 @@
 export const PokemonListItem = (
     { name,
     cod,
-    img
+    img,
+    onShowDetail
     }
 )=>{
     return (
@@ -9,7 +10,7 @@ export const PokemonListItem = (
             <img src={img} alt={name} />
             <div>
                 <strong>{name}</strong>
-                <button>Details</button>
+                <button onClick={()=>{onShowDetail(cod)}}>Details</button>
             </div>
         </section>
     );

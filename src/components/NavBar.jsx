@@ -1,12 +1,13 @@
+import { NavLink } from "react-router"
 export const NavBar = (
     {isOpen = false}
 )=>{
     return (
         <nav className={isOpen ? "open": ""}>
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">My Collection</a></li>
-                    <li><a href="">About</a></li>
+                    <li><NavLink to="/">Home</NavLink></li>
+                    <li><NavLink to="/my-collection">My Collection</NavLink></li>
+                    <li><NavLink to="/about-me">About</NavLink></li>
                 </ul>
         </nav>
     )

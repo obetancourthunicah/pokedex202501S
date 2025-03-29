@@ -1,22 +1,24 @@
 // Import vendor dependencies
-
+import {BrowserRouter, Routes, Route} from 'react-router';
 // Import Local Components
 import { DashBoard } from './pages/Dashboard'
 // Import Assets
 
-import { Header } from './components/Header'
-import { Main } from './components/Main'
+import { Layout } from './pages/Layout';
+import { Detail } from './pages/Detail';
 function App() {
 
   return (
-    <>
-      <Header
-        title="Pokedex V-202501"
-      />
-      <Main>
-        <DashBoard />
-      </Main>
-    </>
+    <BrowserRouter>
+    <Routes>
+      <Route element={<Layout/>}>
+        <Route path="/" element={<DashBoard/>} />
+        <Route path="/my-collection" element={<section>Colección</section>} />
+        <Route path="/about-me" element={<section>About Me</section>} />
+        <Route path="/detail/:pokecod" element={<Detail/>} />
+      </Route>
+    </Routes>
+    </BrowserRouter>
   )
 }
 

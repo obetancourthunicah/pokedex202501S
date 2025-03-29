@@ -2,7 +2,7 @@ import { getPokemonImg } from "../../services/pokemonService";
 import { PokemonListItem } from "./PokemonListItem";
 
 export const PokemonList = (
-    { pokemons }
+    { pokemons, onShowDetail }
 ) => {
     return (<section className="pokemonHolder">
         {pokemons.map((pokemon) => {
@@ -13,6 +13,7 @@ export const PokemonList = (
                     name={pokemon.name}
                     cod={cod}
                     img={img}
+                    onShowDetail={onShowDetail}
                 />
             )
         })
