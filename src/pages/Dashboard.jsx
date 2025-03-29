@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useGetPokemons } from "../services/pokemonService"
+import { PokemonList } from "../components/PokemonList/PokemonList";
 
 export const DashBoard = ()=>{
     const [page, setPage] = useState(0);
@@ -12,9 +13,9 @@ export const DashBoard = ()=>{
         {isLoading && <section>Loading ....</section>}
         {pokemonData.results.length > 0 && (
             <>
-                <pre>
-                    {JSON.stringify(pokemonData.results, null ,2)}
-                </pre>
+                <PokemonList
+                    pokemons={pokemonData.results}
+                />
                 <button onClick={()=>setPage(page - 1)}>Previous</button>
                 <button onClick={()=>setPage(page + 1)}>Next</button>
             </>
