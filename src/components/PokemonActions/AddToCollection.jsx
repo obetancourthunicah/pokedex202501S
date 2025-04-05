@@ -16,7 +16,7 @@ export const AddToCollection = (
         const pokemonToAdd = {
             code: code,
             name: name,
-            url: `https://pokeapi.co/api/v2/${code}`
+            url: `https://pokeapi.co/api/v2/pokemon/${code}/`
         }
         saveCollection([...collection, pokemonToAdd]);
     }
@@ -30,14 +30,20 @@ export const AddToCollection = (
     return (
         <>
             {isPokemonInCollection ?
-                <>
-                    <Link to="/my-collection">View In My Collection</Link>
-                    <button onClick={()=>removeFromCollection()}>
+                <div className="flex gap-4">
+                    <Link to="/my-collection"
+                        className="px-4 py-2 bg-red-700 text-white text-xs rounded-sm"
+                    >View In My Collection</Link>
+                    <button onClick={()=>removeFromCollection()}
+                        className="px-4 py-2 bg-red-700 text-white text-xs rounded-sm"
+                        >
                         Remove from Collection
                     </button>
-                </>
+                </div>
                 :
-                <button onClick={()=>addToCollection()} >
+                <button onClick={()=>addToCollection()} 
+                    className="px-4 py-2 bg-red-700 text-white text-xs rounded-sm"
+                >
                     Add to Collection
                 </button>
             }
